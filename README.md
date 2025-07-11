@@ -1,8 +1,14 @@
 # CypherPy-Obfuscator 🛡️🐍
 
-> **Secure, compile, and obfuscate your Python code like a pro.**
+> 🔐 **CypherPy-Obfuscator** protege tu lógica Python convirtiéndola en binarios compilados `.so`, haciendo el código ilegible y difícil de modificar. Esta herramienta es ideal para desarrolladores y expertos en ciberseguridad que desean distribuir aplicaciones sin exponer su código fuente.
 
-`CypherPy-Obfuscator` es una utilidad profesional basada en [Cython](https://cython.org/) que convierte tus scripts `.py` en binarios `.so`, dificultando su ingeniería inversa y mejorando el rendimiento. Ideal para proteger lógica crítica o distribuir software con una capa extra de seguridad.
+Aporta una capa crítica de protección en entornos donde la confidencialidad, integridad y resistencia a la ingeniería inversa son prioritarias:
+
+- 👨‍💻 **Desarrolladores**: Evita la exposición del core lógico en soluciones embebidas, APIs locales o herramientas de escritorio.
+- 🛡️ **Profesionales en Ciberseguridad**: Aumenta la seguridad en scripts de automatización, detección, honeypots o mecanismos de defensa activa.
+- 🔐 **Entornos industriales y corporativos**: Protege propiedad intelectual frente a terceros, clientes o personal interno.
+
+CypherPy-Obfuscator no sustituye al cifrado o a controles de acceso, pero **añade una barrera efectiva contra el análisis y la alteración del código**, manteniendo intacta la funcionalidad original del proyecto.
 
 Repositorio: [https://github.com/AI-Root01/CypherPy-Obfuscator](https://github.com/AI-Root01/CypherPy-Obfuscator)  
 Perfil del autor: [https://github.com/AI-Root01](https://github.com/AI-Root01)
