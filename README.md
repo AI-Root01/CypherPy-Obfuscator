@@ -4,6 +4,9 @@
 
 `CypherPy-Obfuscator` es una utilidad profesional basada en [Cython](https://cython.org/) que convierte tus scripts `.py` en binarios `.so`, dificultando su ingeniería inversa y mejorando el rendimiento. Ideal para proteger lógica crítica o distribuir software con una capa extra de seguridad.
 
+Repositorio: [https://github.com/AI-Root01/CypherPy-Obfuscator](https://github.com/AI-Root01/CypherPy-Obfuscator)  
+Perfil del autor: [https://github.com/AI-Root01](https://github.com/AI-Root01)
+
 ---
 
 ## 🚀 Características
@@ -23,7 +26,11 @@
 - build-essential (Linux)
 - setuptools
 
-# 🔧 Estructura del Proyecto
+---
+
+## 🔧 Estructura del Proyecto
+
+```
 CypherPy-Obfuscator/
 │
 ├── ofuscar.py        # Compila el archivo objetivo con Cython
@@ -31,18 +38,18 @@ CypherPy-Obfuscator/
 ├── run_app.py        # Ejecuta el binario compilado
 ├── hello.py          # Ejemplo básico ("Hola Mundo")
 ├── README.md         # Este archivo
+```
 
-# Instálalos así:
+---
+
+## ⚙️ Instalación Rápida
 
 ```bash
 sudo apt update && sudo apt install build-essential python3-pip -y
-pip install cython setuptools ```
+pip install cython setuptools
+```
 
-
-# CypherPy-Obfuscator
-
-Una herramienta ligera para compilar y proteger scripts Python mediante Cython, ideal para desarrolladores que buscan ofuscar su código sin alterar su flujo de ejecución.
-
+---
 
 ## 🔐 ¿Cómo usar?
 
@@ -90,7 +97,7 @@ python3 run_app.py
 
 ---
 
-## 📁 Limpiar Archivos de Build
+## 📁 Limpieza de Archivos de Build
 
 El script `clean_build.py` elimina:
 
@@ -109,7 +116,4 @@ El script `clean_build.py` elimina:
 
 ## 📄 Licencia
 
-MIT License — Libre de usar y modificar.
-
----
-
+Distribuido bajo la licencia [MIT](LICENSE). Libre de usar, modificar y distribuir.
