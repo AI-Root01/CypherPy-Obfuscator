@@ -30,6 +30,7 @@ sudo apt update && sudo apt install build-essential python3-pip -y
 pip install cython setuptools ```
 
 
+
 # 🔧 Estructura del Proyecto
 CypherPy-Obfuscator/
 │
@@ -41,11 +42,11 @@ CypherPy-Obfuscator/
 
 
 
+
 # CypherPy-Obfuscator
 
 Una herramienta ligera para compilar y proteger scripts Python mediante Cython, ideal para desarrolladores que buscan ofuscar su código sin alterar su flujo de ejecución.
 
----
 
 ## 🔐 ¿Cómo usar?
 
