@@ -23,14 +23,6 @@
 - build-essential (Linux)
 - setuptools
 
-Instálalos así:
-
-```bash
-sudo apt update && sudo apt install build-essential python3-pip -y
-pip install cython setuptools ```
-
-
-
 # 🔧 Estructura del Proyecto
 CypherPy-Obfuscator/
 │
@@ -40,7 +32,11 @@ CypherPy-Obfuscator/
 ├── hello.py          # Ejemplo básico ("Hola Mundo")
 ├── README.md         # Este archivo
 
+# Instálalos así:
 
+```bash
+sudo apt update && sudo apt install build-essential python3-pip -y
+pip install cython setuptools ```
 
 
 # CypherPy-Obfuscator
