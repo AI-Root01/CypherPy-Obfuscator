@@ -27,7 +27,7 @@ Instálalos así:
 
 ```bash
 sudo apt update && sudo apt install build-essential python3-pip -y
-pip install cython setuptools
+pip install cython setuptools ```
 
 
 # 🔧 Estructura del Proyecto
@@ -107,13 +107,6 @@ El script `clean_build.py` elimina:
 ## 🔒 Nota de Seguridad
 
 > Este método **no es invulnerable**. Aunque Cython compila a binario, usuarios expertos aún podrían desensamblar el `.so`. Este sistema es una **capa adicional**, no una solución definitiva contra ingeniería inversa.
-
----
-
-## 🧑‍💻 Autor
-
-**CypherSec Group**  
-Especialistas en **seguridad ofensiva**, **hardening** y **ofuscación Python**.
 
 ---
 
