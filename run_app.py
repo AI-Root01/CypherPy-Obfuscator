@@ -1,16 +1,41 @@
+#!/usr/bin/env python3
 import sys
 import os
-import runpy
+import glob
 
-BASENAME = "hello"  # Cambia si el script ofuscado tiene otro nombre
-SO_FILE = f"{BASENAME}.cpython-{sys.version_info.major}{sys.version_info.minor}-{'x86_64' if sys.maxsize > 2**32 else 'aarch64'}-linux-gnu.so"
+def encontrar_archivo_so():
+    """Encuentra el archivo .so ofuscado"""
+    archivos_so = glob.glob("/opt/orexx/*.so")
+    
+    if not archivos_so:
+        print("❌ ERROR: No se encontró archivo .so ofuscado")
+        print("Ejecuta primero el script de ofuscación")
+        sys.exit(1)
+    
+    return archivos_so[0]
 
-try:
-    if not os.path.exists(SO_FILE):
-        raise FileNotFoundError(f"No se encontró el binario compilado: {SO_FILE}")
+def main():
+    try:
+        # Encontrar archivo .so
+        archivo_so = encontrar_archivo_so()
+        print(f"🚀 Ejecutando archivo ofuscado: {os.path.basename(archivo_so)}")
+        
+        # Agregar directorio al path de Python
+        directorio = os.path.dirname(archivo_so)
+        if directorio not in sys.path:
+            sys.path.insert(0, directorio)
+        
+        # Importar y ejecutar el módulo ofuscado
+        import app
+        
+        print("✅ Archivo ofuscado ejecutado exitosamente")
+        
+    except ImportError as e:
+        print(f"❌ ERROR: No se pudo importar el módulo ofuscado: {e}")
+        sys.exit(1)
+    except Exception as e:
+        print(f"❌ ERROR durante la ejecución: {e}")
+        sys.exit(1)
 
-    __import__(BASENAME)
-    print("✅ Código ofuscado ejecutado correctamente.")
-except Exception as e:
-    print(f"❌ Error al ejecutar el binario: {e}")
-    sys.exit(1)
+if __name__ == "__main__":
+    main()
