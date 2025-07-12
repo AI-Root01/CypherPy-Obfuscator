@@ -1,27 +1,68 @@
+#!/usr/bin/env python3
 import sys
 import os
+import shutil
 from setuptools import setup
 from Cython.Build import cythonize
 
+APP_FILE = "/opt/orexx/app.py"
+
+def validar_archivo(path):
+    if not os.path.isfile(path):
+        print(f"❌ ERROR: No se encontró el archivo: {path}")
+        sys.exit(1)
+
+def limpiar_archivos_temporales():
+    """Limpia archivos temporales generados por la compilación"""
+    archivos_temp = ["app.c", "build"]
+    for archivo in archivos_temp:
+        if os.path.exists(archivo):
+            if os.path.isdir(archivo):
+                shutil.rmtree(archivo)
+                print(f"🗑️  Directorio {archivo} eliminado")
+            else:
+                os.remove(archivo)
+                print(f"🗑️  Archivo {archivo} eliminado")
+
 def main():
-    if len(sys.argv) != 2:
-        print("Uso: python3 ofuscar.py archivo.py")
-        sys.exit(1)
-
-    target_file = sys.argv[1]
+    validar_archivo(APP_FILE)
     
-    if not os.path.isfile(target_file):
-        print(f"❌ Error: archivo '{target_file}' no encontrado.")
-        sys.exit(1)
-
     try:
+        print("🚀 Iniciando ofuscación (compilación) de app.py con Cython...")
+        
+        # Configuración de Cython para máxima ofuscación
         setup(
-            script_args=["build_ext", "--inplace"],
-            ext_modules=cythonize(target_file, compiler_directives={"language_level": "3"})
+            ext_modules=cythonize(
+                APP_FILE, 
+                compiler_directives={
+                    "language_level": "3",
+                    "boundscheck": False,
+                    "wraparound": False,
+                    "cdivision": True,
+                    "embedsignature": False,
+                    "emit_code_comments": False
+                }
+            ),
+            script_args=["build_ext", "--inplace"]
         )
-        print(f"✅ Compilación exitosa: {target_file}")
+        
+        print("✅ Ofuscación completada con éxito.")
+        
+        # Mostrar archivos generados
+        print("\n📁 Archivos generados:")
+        for archivo in os.listdir("/opt/orexx/"):
+            if archivo.endswith('.so'):
+                print(f"   - {archivo} (archivo ejecutable ofuscado)")
+            elif archivo.endswith('.c'):
+                print(f"   - {archivo} (código C generado)")
+        
+        # Preguntar si limpiar archivos temporales
+        respuesta = input("\n🧹 ¿Eliminar archivos temporales? (y/n): ").lower()
+        if respuesta in ['y', 'yes', 's', 'si']:
+            limpiar_archivos_temporales()
+            
     except Exception as e:
-        print(f"❌ Error en la compilación: {e}")
+        print(f"❌ ERROR durante la ofuscación: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":
